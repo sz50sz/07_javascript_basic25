@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>カウントアップ装置</title>
+</head>
+
+<body>
+    <p id="counter"></p>
+    <button id="plus">+1</button>
+    <script>
+        // 変数を使って0を代入
+        let count = 0;
+        console.log(count)
+        // コンソールにcountという変数を表示
+        let counter = document.querySelector("body #counter");
+        // documentはHTMLのこと！HTML内にあるものに使う
+        // ()内はCSSみたいに書けばOK！
+        console.log(counter);
+        counter.textContent = count;
+        // p要素のテキストをcountにする
+        const plusBtn = document.querySelector('#plus');
+        //clickイベントを設定
+        plusBtn.addEventListener("click", function () {
+            //click後の処理
+            console.log("クリックしたぞ");
+        });
+        //clickイベントを設定
+        plusBtn.addEventListener("click", function () {
+            //click後の処理
+            console.log("クリックしたぞ");
+            //変数countに+1する。インクリメント
+            count++;
+            //countをcounterに代入して、表示させる。
+            counter.textContent = count;
+        });
+
+        let a;//変数の宣言
+        a = 10;
+        console.log(a);
+
+        let b = 20;//宣言と代入を同時に行う
+        console.log(b);
+        b = 30;
+        console.log(b);
+        console.log("b");
+    </script>
+</body>
+
+</html>
