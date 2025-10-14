@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>配列・条件分岐（if文）の振り返り</title>
+</head>
+
+<body>
+    <button id="btn">クリック</button>
+    <script>
+        const hobbies = ['映画鑑賞', '読書', '旅行'];
+        let count = 0;
+        const colors = ['赤', '青', '黄'];
+        const blue = colors[1];
+        console.log(blue);
+        btn = document.querySelector('#btn');
+        btn.addEventListener('click', function () { alert('押されました'); });
+        if (3 === hobbies.length) { console.log('趣味が3つあります'); }
+        else { console.log('趣味が3つではありません'); }
+    </script>
+</body>
+
+</html>
