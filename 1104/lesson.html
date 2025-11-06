@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* スペース＝子孫セレクター */
+        h1 span {
+            color: red;
+        }
+
+        .green {
+            color: green;
+        }
+
+        .orange {
+            color: orange;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 class="doctitle">titl<span>e</span>title</h1>
+    <h2>subtitle</h2>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+    <button>change color!!!!!!!!!</button>
+
+    <script>
+        // とりあえず変数に入れる！
+        const title = document.querySelector('.doctitle span');
+        console.log(title);
+        const num = 0;
+        console.log(num);
+
+        // let→可変　const→不変
+
+        title.addEventListener('click', function () {
+            alert('span')
+        });
+
+
+        const subtitle = document.querySelector('h2');
+        subtitle.addEventListener('click', function () {
+            alert('pay')
+        })
+
+
+        const lists = document.querySelectorAll('li');
+        console.log(lists[2])
+
+
+        let number = 1;
+        if (number === 1) {
+            console.log('This is 1');
+        } else {
+            console.log('NoNoNo')
+        }
+
+
+        const animals = ['dog', 'cat', 'fox', 'racoon'];
+        console.log(animals);
+
+        for (let i = 0; i < animals.length; i = i + 1) {
+            console.log(animals[i]);
+        };
+
+        for (let i = 0; i < lists.length; i++) {
+            console.log(lists[i]);
+        };
+
+        function changeColor() {
+            lists[3].classList.add('green');
+            lists[1].classList.add('orange');
+        }
+        const button = document.querySelector('button');
+        button, addEventListener('click', function () {
+            changeColor();
+
+        })
+
+    </script>
+</body>
+
+</html>
