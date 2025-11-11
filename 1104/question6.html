@@ -32,21 +32,18 @@
             background-color: #333;
         }
 
-        .box.red {
-            width: 200px;
-            height: 200px;
+        .red {
+
             background-color: #f00;
         }
 
-        .box.green {
-            width: 200px;
-            height: 200px;
+        .green {
+
             background-color: #0f0;
         }
 
-        .box.blue {
-            width: 200px;
-            height: 200px;
+        .blue {
+
             background-color: #00f;
         }
 
@@ -88,23 +85,38 @@
     const btns = document.querySelectorAll('button');
     const box = document.querySelector('.box');
 
-    btns[0].addEventListener('click', function () {
-        box.classList.add('red');
+    function changeColorRed() {
+        box.classList.add('red')
         box.classList.remove('green')
         box.classList.remove('blue')
-    });
+    }
 
-    btns[1].addEventListener('click', function () {
-        box.classList.add('green');
+    function changeColorGreen() {
+        box.classList.add('green')
         box.classList.remove('red')
         box.classList.remove('blue')
-    });
+    }
 
-    btns[2].addEventListener('click', function () {
-        box.classList.add('blue');
+    function changeColorBlue() {
+        box.classList.add('blue')
         box.classList.remove('green')
         box.classList.remove('red')
-    });
+    }
+
+
+    for (let i = 0; i < btns.length; i++) {
+        btns[i].addEventListener('click', function () {
+            if (i === 0) {
+                changeColorRed();
+            }
+            else if (i === 1) {
+                changeColorGreen();
+            }
+            else {
+                changeColorBlue();
+            }
+        });
+    }
 
 
 </script>
