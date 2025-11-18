@@ -21,3 +21,9 @@ h1 {
   color: #fff;
   mix-blend-mode: difference;
 }
+
+.moveToTop {
+  position: fixed;
+  bottom: 50px;
+  right: 30px;
+}
