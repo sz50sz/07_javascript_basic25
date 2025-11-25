@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="innerhtml"></div>
+    <script>
+
+        //テンプレートリテラルの練習
+        const name = 'Alice';
+        //文字列の連結+を用いた方法
+        console.log('私の名前は' + name + 'です。');
+        //テンプレートリテラルを用いた方法
+        //バックティックで囲む
+        //変数を${}で使うことができる
+        console.log(`私の名前は${name}です。`);
+        //改行もそのまま反映される
+        const text = `私の名前は
+        ${name}です。`;
+        console.log(text);
+
+        const maikjuice2 = function (fruit) {
+            console.log(fruit + 'ジュース');
+        }
+        //無名関数を実行
+        maikjuice2('みかん');
+
+        const innerhtml = document.querySelector('.innerhtml');
+        innerhtml.innerHTML = '<h1>Hello</h1>';
+        innerhtml.innerHTML += '<p>world</p>'
+    </script>
+</body>
+
+</html>

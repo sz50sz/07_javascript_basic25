@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        section {
+            width: 50%;
+            margin: auto;
+            text-align: center;
+        }
+
+        img {
+            width: 50%;
+        }
+
+        .unit {
+            font-size: 1.5em;
+        }
+
+        .price {
+            p {
+                display: inline-block;
+            }
+
+            button {
+                display: inline-block;
+                margin: 0 5px;
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <h1>醤油らーめん</h1>
+        <div class="ramenArea">
+            <img src="https://4.bp.blogspot.com/-SmXTKx3nBcA/UrlnHYwXxoI/AAAAAAAAcOA/erB3n3GC80E/s800/ramen_syouyu.png"
+                alt="醤油ラーメン" />
+            <p class="unit"><span>550</span>円</p>
+        </div>
+        <div class="price">
+            <button class="minus">-</button>
+            <p class="num">0</p>
+            <button class="plus">+</button>
+        </div>
+        <p>合計：<span class="result"></span></p>
+    </section>
+    <script>
+        let price = 550;
+        let num = 0;
+        //ここから記述してください。
+        const plusBtn = document.querySelector('.plus');
+        const minusBtn = document.querySelector('.minus');
+        let number = document.querySelector('.num');
+        number.textContent = num;
+
+        plusBtn.addEventListener('click', function () {
+            num++;
+        })
+        minusBtn.addEventListener('click', function () {
+            num--;
+        })
+    </script>
+</body>
