@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>horoscope</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css?family=Sawarabi+Mincho" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/the-new-css-reset/css/reset.min.css">
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <h1>星座占い</h1>
+    <div class="horo">
+        <section class="card">
+            <img src="./images/horo1.png" alt="">
+            <h2>おひつじ座</h2>
+            <p>3/21〜4/19</p>
+        </section>
+        <section class="card">
+            <img src="./images/horo2.png" alt="">
+            <h2>おうし座</h2>
+            <p>4/20〜5/20</p>
+        </section>
+        <section class="card">
+            <img src="./images/horo3.png" alt="">
+            <h2>ふたご座</h2>
+            <p>5/21〜6/21</p>
+        </section>
+        <section class="card">
+            <img src="./images/horo4.png" alt="">
+            <h2>かに座</h2>
+            <p>6/22〜7/22</p>
+        </section>
+        <section class="card">
+            <img src="./images/horo5.png" alt="">
+            <h2>しし座</h2>
+            <p>7/23〜8/22</p>
+        </section>
+        <section class="card">
+            <img src="./images/horo6.png" alt="">
+            <h2>おとめ座</h2>
+            <p>8/23〜9/22</p>
+        </section>
+        <section class="card">
+            <img src="./images/horo7.png" alt="">
+            <h2>てんびん座</h2>
+            <p>9/23〜10/23</p>
+        </section>
+        <section class="card">
+            <img src="./images/horo8.png" alt="">
+            <h2>さそり座</h2>
+            <p>10/24〜11/22</p>
+        </section>
+        <section class="card">
+            <img src="./images/horo9.png" alt="">
+            <h2>いて座</h2>
+            <p>11/23〜12/21</p>
+        </section>
+        <section class="card">
+            <img src="./images/horo10.png" alt="">
+            <h2>やぎ座</h2>
+            <p>12/22〜1/19</p>
+        </section>
+        <section class="card">
+            <img src="./images/horo11.png" alt="">
+            <h2>みずがめ座</h2>
+            <p>1/20〜2/18</p>
+        </section>
+        <section class="card">
+            <img src="./images/horo12.png" alt="">
+            <h2>うお座</h2>
+            <p>2/19〜3/20</p>
+        </section>
+    </div>
+
+    <div id="popup">
+        <div id="popupContent"></div>
+        <button id="closePopup">閉じる</button>
+    </div>
+
+    <script>
+        const luckList = ['小さな挑戦が大きな自信につながる日！思い切って動くほどキラキラ運が味方してくれる✨', 'ゆったりペースが吉。焦らず丁寧に進めることで想像以上の成果が…！心の余裕が運気アップの鍵🍃', 'ひらめきが冴えまくる日！思いついたらすぐメモしてね。軽い気持ちで始めたことが幸運に変わりそう📚✨', '周りに頼られる場面が増えるかも。ちょっと大変だけど、優しさが巡っていいこと返ってくるよ〜🫧💞', '魅力がぐんっとアップ！人前に出るほど輝くよ。やりたいことを堂々と伝えるとチャンスが寄ってくる日🌟✨', '細かいところに気づけて大活躍！でも頑張りすぎ注意だよ〜。ちょっと甘やかしタイムで運気回復🍰💗', 'ふとした瞬間に恋のきらめきが…！無理に動かなくても、自然体のあなたに惹かれる人が現れそう💞✨', '集中力が最強レベル♡難しいこともスルッとこなせる日。こっそり努力すると後から大きな実りに🌙🖤', '思わぬハプニングがあるけど、柔軟に動けばむしろチャンスに変わるよ！冒険心が運気を開く日🏹🌈', 'コツコツ努力が形になって褒められる予感！控えめに喜んでたらもっと運が寄ってくるよ〜🧁✨', '新しい人とのつながりが幸運に。軽い会話からいい情報が手に入りそう！ワクワク心が開運の合図💎💬', '優しさが周りをふわっと癒す日。自分にも優しくするともっといい流れに💖感性がひらいて幸せ引き寄せるよ🌊✨'];
+        const numberList = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '33', '50'];
+        const itemList = ['リボンのヘアクリップ', 'ちっちゃい星型チャーム', 'くまさんキーホルダー', 'パールのシュシュ', 'ミニサイズの香水', '月モチーフのアクセ', 'ハートのミラー', 'キャンディ', 'レースのハンカチ', 'クラゲのストラップ', '蝶々モチーフのリング', 'ふわふわのポンポンチャーム'];
+
+        // 重複なしで取り出す関数
+        function getRandomAndRemove(array) {
+            const num = Math.floor(Math.random() * array.length);
+            const value = array[num];
+            array.splice(num, 1);
+            return value;
+        }
+
+        const cards = document.querySelectorAll('.card');
+        const popup = document.getElementById('popup');
+        const popupContent = document.getElementById('popupContent');
+        const closePopup = document.getElementById('closePopup');
+
+        // ⭐星座ごとの結果を保存するオブジェクト
+        const zodiacResults = {};
+
+        for (let i = 0; i < cards.length; i++) {
+            cards[i].addEventListener('click', function () {
+                const zodiacName = cards[i].querySelector('h2').textContent;
+                const zodiacImgSrc = cards[i].querySelector('img').src;
+
+                // まだ結果がない場合だけ作る
+                if (!zodiacResults[zodiacName]) {
+                    zodiacResults[zodiacName] = {
+                        luck: getRandomAndRemove(luckList),
+                        number: getRandomAndRemove(numberList),
+                        item: getRandomAndRemove(itemList),
+                        img: zodiacImgSrc
+                    };
+                }
+
+                const result = zodiacResults[zodiacName];
+
+                // ポップアップに表示
+                popupContent.innerHTML =
+                    '<h2>' + zodiacName + '</h2>' +
+                    '<img src="' + result.img + '" style="width:150px; margin:10px 0;"><br>' +
+                    '<p><strong>運勢:</strong> ' + result.luck + '</p>' +
+                    '<p><strong>ラッキーナンバー:</strong> ' + result.number + '</p>' +
+                    '<p><strong>ラッキーアイテム:</strong> ' + result.item + '</p>';
+
+                // ポップアップを開くとき
+                popup.style.display = 'block';
+
+                // 描画されてから class をつけることでアニメーション発動
+                setTimeout(function () {
+                    popup.classList.add('show');
+                }, 10);
+
+                // 閉じるボタン
+                closePopup.addEventListener('click', function () {
+                    popup.classList.remove('show');
+
+                    // アニメーション終わってから消す
+                    setTimeout(function () {
+                        popup.style.display = 'none';
+                    }, 300);
+                });
+            });
+        }
+
+        closePopup.addEventListener('click', function () {
+            popup.classList.remove('show');
+
+            setTimeout(function () {
+                popup.style.display = 'none';
+            }, 300);
+        });
+    </script>
+</body>
+
+</html>

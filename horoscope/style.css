@@ -1,0 +1,99 @@
+@charset "utf-8";
+
+body {
+    font-family: "Sawarabi Mincho";
+    font-weight: 400;
+    font-style: normal;
+    padding: 120px 0;
+    background-color: #FFF9F9;
+    color: #5C4033;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+}
+
+h1 {
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.horo {
+    width: 1000px;
+    margin-right: auto;
+    margin-left: auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
+.horo img {
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 20px;
+    margin-bottom: 10px;
+}
+
+.card {
+    text-align: center;
+    background-color: #FFB6C1;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.card h2 {
+    font-size: 20px;
+}
+
+.card p {
+    margin-bottom: 10px;
+}
+
+.card:hover {
+    background-color: #b6fee2;
+    transition: 0.3s;
+}
+
+#popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    background: white;
+    padding: 20px 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    display: none;
+    max-width: 90%;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* 開くときのアニメーション */
+#popup.show {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+#popup button {
+    margin-top: 15px;
+    padding: 5px 10px;
+    border: none;
+    background: #FFB6C1;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#popup button:hover {
+    background-color: #b6fee2;
+    transition: 0.3s;
+}
