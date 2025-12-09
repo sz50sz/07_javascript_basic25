@@ -5,8 +5,15 @@ body {
     font-weight: 400;
     font-style: normal;
     padding: 120px 0;
-    background-color: #FFF9F9;
-    color: #5C4033;
+    background: linear-gradient(45deg,
+            rgba(225, 240, 255, 0.2),
+            rgba(214, 236, 255, 0.2),
+            rgba(216, 248, 255, 0.2),
+            rgba(230, 214, 255, 0.2),
+            rgba(255, 214, 250, 0.2),
+            rgba(255, 228, 244, 0.2));
+    backdrop-filter: blur(2px);
+    color: #8a8aa3;
 }
 
 img {
@@ -42,7 +49,7 @@ h1 {
 
 .card {
     text-align: center;
-    background-color: #FFB6C1;
+    background: rgba(230, 225, 245, 0.7);
     padding: 20px;
     border-radius: 20px;
 }
@@ -56,8 +63,8 @@ h1 {
 }
 
 .card:hover {
-    background-color: #b6fee2;
-    transition: 0.3s;
+    background: rgba(210, 220, 250, 0.85);
+    transition: 0.8s;
 }
 
 #popup {
@@ -65,7 +72,7 @@ h1 {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) scale(0.8);
-    background: white;
+    background: #fff;
     padding: 20px 30px;
     border-radius: 10px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
@@ -77,7 +84,6 @@ h1 {
     transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-/* 開くときのアニメーション */
 #popup.show {
     opacity: 1;
     transform: translate(-50%, -50%) scale(1);
@@ -87,13 +93,35 @@ h1 {
     margin-top: 15px;
     padding: 5px 10px;
     border: none;
-    background: #FFB6C1;
+    background: rgb(230, 225, 245);
     color: #fff;
     border-radius: 5px;
     cursor: pointer;
 }
 
 #popup button:hover {
-    background-color: #b6fee2;
-    transition: 0.3s;
+    background: rgb(210, 220, 250);
+    transition: 0.5s;
+}
+
+@media (width<640px) {
+    .horo {
+        width: 90%;
+        margin-right: auto;
+        margin-left: auto;
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 30px;
+    }
+
+    .card {
+        padding-right: 100px;
+        display: grid;
+        grid-auto-flow: column;
+        column-gap: 20px;
+    }
+
+    .text {
+        text-align: left;
+    }
 }

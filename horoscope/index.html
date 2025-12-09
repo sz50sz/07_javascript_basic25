@@ -17,63 +17,87 @@
     <div class="horo">
         <section class="card">
             <img src="./images/horo1.png" alt="">
-            <h2>おひつじ座</h2>
-            <p>3/21〜4/19</p>
+            <div class="text">
+                <h2>おひつじ座</h2>
+                <p>3/21〜4/19</p>
+            </div>
         </section>
         <section class="card">
             <img src="./images/horo2.png" alt="">
-            <h2>おうし座</h2>
-            <p>4/20〜5/20</p>
+            <div class="text">
+                <h2>おうし座</h2>
+                <p>4/20〜5/20</p>
+            </div>
         </section>
         <section class="card">
             <img src="./images/horo3.png" alt="">
-            <h2>ふたご座</h2>
-            <p>5/21〜6/21</p>
+            <div class="text">
+                <h2>ふたご座</h2>
+                <p>5/21〜6/21</p>
+            </div>
         </section>
         <section class="card">
             <img src="./images/horo4.png" alt="">
-            <h2>かに座</h2>
-            <p>6/22〜7/22</p>
+            <div class="text">
+                <h2>かに座</h2>
+                <p>6/22〜7/22</p>
+            </div>
         </section>
         <section class="card">
             <img src="./images/horo5.png" alt="">
-            <h2>しし座</h2>
-            <p>7/23〜8/22</p>
+            <div class="text">
+                <h2>しし座</h2>
+                <p>7/23〜8/22</p>
+            </div>
         </section>
         <section class="card">
             <img src="./images/horo6.png" alt="">
-            <h2>おとめ座</h2>
-            <p>8/23〜9/22</p>
+            <div class="text">
+                <h2>おとめ座</h2>
+                <p>8/23〜9/22</p>
+            </div>
         </section>
         <section class="card">
             <img src="./images/horo7.png" alt="">
-            <h2>てんびん座</h2>
-            <p>9/23〜10/23</p>
+            <div class="text">
+                <h2>てんびん座</h2>
+                <p>9/23〜10/23</p>
+            </div>
         </section>
         <section class="card">
             <img src="./images/horo8.png" alt="">
-            <h2>さそり座</h2>
-            <p>10/24〜11/22</p>
+            <div class="text">
+                <h2>さそり座</h2>
+                <p>10/24〜11/22</p>
+            </div>
         </section>
         <section class="card">
             <img src="./images/horo9.png" alt="">
-            <h2>いて座</h2>
-            <p>11/23〜12/21</p>
+            <div class="text">
+                <h2>いて座</h2>
+                <p>11/23〜12/21</p>
+            </div>
         </section>
         <section class="card">
             <img src="./images/horo10.png" alt="">
-            <h2>やぎ座</h2>
-            <p>12/22〜1/19</p>
+            <div class="text">
+                <h2>やぎ座</h2>
+                <p>12/22〜1/19</p>
+            </div>
         </section>
         <section class="card">
             <img src="./images/horo11.png" alt="">
-            <h2>みずがめ座</h2>
-            <p>1/20〜2/18</p>
+            <div class="text">
+                <h2>みずがめ座</h2>
+                <p>1/20〜2/18</p>
+            </div>
         </section>
         <section class="card">
             <img src="./images/horo12.png" alt="">
-            <h2>うお座</h2>
-            <p>2/19〜3/20</p>
+            <div class="text">
+                <h2>うお座</h2>
+                <p>2/19〜3/20</p>
+            </div>
         </section>
     </div>
 
@@ -87,8 +111,8 @@
         const numberList = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '33', '50'];
         const itemList = ['リボンのヘアクリップ', 'ちっちゃい星型チャーム', 'くまさんキーホルダー', 'パールのシュシュ', 'ミニサイズの香水', '月モチーフのアクセ', 'ハートのミラー', 'キャンディ', 'レースのハンカチ', 'クラゲのストラップ', '蝶々モチーフのリング', 'ふわふわのポンポンチャーム'];
 
-        // 重複なしで取り出す関数
-        function getRandomAndRemove(array) {
+        // 重複なしで取り出す
+        function randomPick(array) {
             const num = Math.floor(Math.random() * array.length);
             const value = array[num];
             array.splice(num, 1);
@@ -100,7 +124,7 @@
         const popupContent = document.getElementById('popupContent');
         const closePopup = document.getElementById('closePopup');
 
-        // ⭐星座ごとの結果を保存するオブジェクト
+        // 星座ごとの結果を保存する
         const zodiacResults = {};
 
         for (let i = 0; i < cards.length; i++) {
@@ -111,9 +135,9 @@
                 // まだ結果がない場合だけ作る
                 if (!zodiacResults[zodiacName]) {
                     zodiacResults[zodiacName] = {
-                        luck: getRandomAndRemove(luckList),
-                        number: getRandomAndRemove(numberList),
-                        item: getRandomAndRemove(itemList),
+                        luck: randomPick(luckList),
+                        number: randomPick(numberList),
+                        item: randomPick(itemList),
                         img: zodiacImgSrc
                     };
                 }
@@ -124,14 +148,14 @@
                 popupContent.innerHTML =
                     '<h2>' + zodiacName + '</h2>' +
                     '<img src="' + result.img + '" style="width:150px; margin:10px 0;"><br>' +
-                    '<p><strong>運勢:</strong> ' + result.luck + '</p>' +
-                    '<p><strong>ラッキーナンバー:</strong> ' + result.number + '</p>' +
-                    '<p><strong>ラッキーアイテム:</strong> ' + result.item + '</p>';
+                    '<p>運勢: ' + result.luck + '</p>' +
+                    '<p>ラッキーナンバー: ' + result.number + '</p>' +
+                    '<p>ラッキーアイテム:' + result.item + '</p>';
 
-                // ポップアップを開くとき
+                // ポップアップを開く
                 popup.style.display = 'block';
 
-                // 描画されてから class をつけることでアニメーション発動
+                // 描画されてからclassをつける
                 setTimeout(function () {
                     popup.classList.add('show');
                 }, 10);
