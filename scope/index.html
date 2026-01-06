@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>スコープほか</title>
+</head>
+
+<body>
+    <script>
+        function sample() {
+            const x = 10;
+            console.log(x);
+        }
+
+        sample();
+        //console.log(x);
+
+        if (true) {
+            const x = 10;
+            console.log(x);
+        }
+        console.log(x);
+
+        const z = 1;
+        function doSomething() {
+            console.log(z);
+        }
+
+        if (true) {
+            console.log(z);
+        }
+
+        doSomething();
+
+        const a = 1; //グローバルスコープ
+        function doSomething1() {
+            const a = 2; //関数スコープ
+            console.log(a); //関数スコープからaを参照
+            if (true) {
+                const a = 3; //ブロックスコープ
+                console.log(a); //ブロックスコープからaを参照
+            }
+            console.log(a);
+        }
+        doSomething1();
+        function doSomething2() {
+            const b = 1; //関数スコープ
+            const bo = 2; //使うことができない。
+        }
+        doSomething2();
+
+        const preson = {
+            name: 'アリス',
+            age: 20,
+            insterest: ['読書', '料理'],
+            greet: function () {
+                console.log('こんにちは');
+            },
+        };
+
+        person.greet();
+
+        console.log(person.name);
+
+        const person2 = {
+            name: 'Alice',
+            greet: function () {
+                console.log(`こんにちは、私は${this.name}です。`);
+            },
+        };
+
+        person2.greet();
+
+        console.log(person2.name);
+
+        const interests = ['読書', '料理', 'キャンプ'];
+        interests.push('散歩');
+        console.log(interests);
+
+        const alphabet = ['a', 'b', 'c'];
+        const last = alphabet.pop();
+        console.log(last); //c
+        console.log(alphabet); //['a', 'b']
+
+        const fruits = ['みかん', 'りんご', 'バナナ'];
+        const check1 = fruits.includes('りんご');
+        console.log(check1); //true
+        const check2 = fruits.includes('ぶどう');
+        console.log(check2); //false
+    </script>
+</body>
+
+</html>
