@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .greenBg {
+            background-color: lightgreen;
+        }
+
+        .blueBg {
+            background-color: lightblue;
+        }
+
+        .redBg {
+            background-color: lightcoral;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="greenButton" class="greenBtn btn">緑にする</button>
+    <button id="blueButton" class="blueBtn btn">青にする</button>
+    <button id="redButton" class="redBtn btn">赤にする</button>
+
+    <script>
+        const greenBtn = document.querySelector(".greenBtn");
+        const blueBtn = document.querySelector(".blueBtn");
+        const redBtn = document.querySelector(".redBtn");
+        const body = document.querySelector("body")
+
+        greenBtn.addEventListener("click", function () {
+            body.classList.add('greenBg');
+            body.classList.remove('blueBg');
+            body.classList.remove('redBg');
+        })
+        blueBtn.addEventListener("click", function () {
+            body.classList.add('blueBg');
+            body.classList.remove('greenBg');
+            body.classList.remove('redBg');
+        })
+        redBtn.addEventListener("click", function () {
+            body.classList.add('redBg');
+            body.classList.remove('blueBg');
+            body.classList.remove('greenBg');
+        })
+    </script>
+</body>
+
+</html>

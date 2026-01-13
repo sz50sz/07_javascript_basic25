@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        .pokemon_area {
+            max-width: 800px;
+            width: 40%;
+            margin-inline: auto;
+
+            img {
+                width: 100%;
+            }
+        }
+    </style>
+    <div class="pokemon_area">
+        <button id="pikachuBtn" class="pokemonBtn" value="25">ピカチュウ</button>
+        <button id="eeveeBtn" class="pokemonBtn" value="133">イーブイ</button>
+        <button id="mewBtn" class="pokemonBtn" value="151">ミュウ</button>
+        <button id="snivyBtn" class="pokemonBtn" value="495">ツタージャ</button>
+        <div class="pokemonResult"></div>
+    </div>
+    <script>
+        const pokemonAPIURL = "https://pokeapi.co/api/v2/pokemon-species/";
+        const pokemonImageURL =
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/"
+        //これ以降に記述
+
+        const Btn = document.querySelectorAll("button");
+    </script>
+</body>
+
+</html>

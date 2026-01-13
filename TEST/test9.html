@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="image_area">
+        <img src="./boxer.png" alt="ボクサーのいらすと" width="200" height="auto">
+    </div>
+    <style>
+        .image_area {
+            text-align: center;
+            width: 200px;
+            margin-inline: auto;
+
+            img {
+                cursor: pointer;
+                transition: all 0.2s;
+            }
+
+            img.shake {
+                animation: shake 0.2s linear 0s 2 forwards;
+            }
+        }
+
+        @keyframes shake {
+            0% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+
+            20% {
+                transform: translate(-3px, -1px) rotate(-3deg);
+            }
+
+            40% {
+                transform: translate(3px, 1px) rotate(3deg);
+            }
+
+            60% {
+                transform: translate(-2px, -1px) rotate(-2deg);
+            }
+
+            80% {
+                transform: translate(2px, 1px) rotate(2deg);
+            }
+
+            100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+        }
+    </style>
+
+    <script>
+
+        const boxer = document.querySelector(".image_area img");
+        const area = document.querySelector(".image_area")
+
+        function punch() {
+            boxer.classList.add("shake")
+        }
+
+        area.addEventListener("click", function () {
+            punch();
+        })
+
+    </script>
+
+</body>
+
+</html>
